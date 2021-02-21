@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+interface Joke {
+  id: number;
+  type: string;
+  setup: string;
+  punchline: string;
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+  const [joke, setJoke] = useState<Joke>();
+
+  const handleGetJoke = async () => {
+    const response = await fetch(
+      "https://official-joke-api.appspot.com/jokes/general/random"
+    );
+    const jsonBody: Joke[] = await response.json();
+    setJoke(jsonBody[0]);
+  };
+
+  if (joke) {
+    return (
+      <div>
+        <h1>Joke app</h1>
+        <details>
+          <summary>{joke.setup}</summary>
+          <p>{joke.punchline}</p>
+        </details>
+        <hr />
+        <button onClick={handleGetJoke}>Get another joke</button>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1>Joke app</h1>
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Click the button to trigger a <code>fetch</code> that gets a random
+          joke from an API!
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        <button onClick={handleGetJoke}>Get joke</button>
+      </div>
+    );
+  }
 }
 
 export default App;
