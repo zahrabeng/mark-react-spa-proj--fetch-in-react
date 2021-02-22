@@ -34,6 +34,8 @@ We'll use [this API](https://dog.ceo/dog-api/documentation/random).
 
 Make the relevant changes to the React app so that you are `fetch`ing from this API (and rendering an image using the data received).
 
+(It's up to you whether you use the `async`/`await` or `.then`!)
+
 ## Exercise 2: accumulating images
 
 > 🎯 **Success criterion:** Your React app contains a growing collection of dog pictures, adding a new random one every time a button is clicked
