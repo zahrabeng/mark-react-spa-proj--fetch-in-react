@@ -15,9 +15,14 @@ function App() {
       "https://official-joke-api.appspot.com/jokes/general/random"
     );
     const jsonBody: Joke[] = await response.json();
-    console.log("Received JSON body:", jsonBody);
     setJoke(jsonBody[0]);
   };
+
+  // const handleGetJoke = () => {
+  //   fetch("https://official-joke-api.appspot.com/jokes/general/random")
+  //     .then((response) => response.json())
+  //     .then((jsonBody: Joke[]) => setJoke(jsonBody[0]));
+  // };
 
   if (joke) {
     return (
