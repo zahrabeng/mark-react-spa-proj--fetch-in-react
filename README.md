@@ -4,7 +4,9 @@
 
 > This is part of Academy's [technical curriculum for **The Mark**](https://github.com/WeAreAcademy/curriculum-mark). All parts of that curriculum, including this project, are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 
-We looked at We'll now look at how `fetch` can be used to load external data from an API into React.
+We looked at `fetch`ing data from an API away from a browser environment, when we were running TS with `ts-node` (and, under the hood, running JS with `node`).
+
+We'll now look at how `fetch` can be used to load external data from an API into React in a browser environment.
 
 ## Learning Outcomes
 
