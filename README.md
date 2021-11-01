@@ -21,7 +21,7 @@ This repo has an example React app which loads data from a joke API when a butto
 
 There's a short delay between the button being clicked and the joke being loaded - because it takes some time for the transportation of data:
 
-- HTTP Request: front-end asks for a joke from `https://official-joke-api.appspot.com/jokes/general/random`
+- HTTP Request: front-end asks for a joke from `https://jokestemp.neillbogie.repl.co/jokes/general/random`
 - HTTP Response: the joke API server responds with a random joke
 
 The `handleGetJoke` function has been written in both `async`/`await` style and Promise `.then` style. (Check that both work by commenting and de-commenting.)
