@@ -7,7 +7,6 @@ interface Dog {
 
 function App() {
   const [dog, setDog] = useState<Dog[]>([]);
-  // const [arr, setArr] = useState<[string, Dog]>([])
 
   const handleGetdog = async () => {
     const response = await fetch(
@@ -33,9 +32,9 @@ function App() {
         <div>
           {dog.map((dogElement) =>
           <>
-          <li><img src={dogElement.message} alt="random Dog " /></li>
-          <summary>{dogElement.message}</summary>
-          <p>{dogElement.status}</p>
+            <li><img src={dogElement.message} alt="random Dog " /></li>
+            <summary>{dogElement.message}</summary>
+            <p>{dogElement.status}</p>
           </>)}
         </div>
         <details>
