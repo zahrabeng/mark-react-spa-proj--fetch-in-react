@@ -37,8 +37,6 @@ function App() {
             <p>{dogElement.status}</p>
           </>)}
         </div>
-        <details>
-        </details>
         <hr />
         <button onClick={handleGetdog}>Get another dog</button>
        
