@@ -32,7 +32,7 @@ function App() {
         <div>
           {dog.map((dogElement) =>
           <>
-            <li><img src={dogElement.message} alt="random Dog " /></li>
+            <li key={dogElement.message}><img src={dogElement.message} alt="random Dog " /></li>
             <summary>{dogElement.message}</summary>
             <p>{dogElement.status}</p>
           </>)}
