@@ -6,14 +6,15 @@ interface Dog {
 }
 
 function App() {
-  const [dog, setDog] = useState<Dog>();
+  const [dog, setDog] = useState<Dog[]>([]);
+  // const [arr, setArr] = useState<[string, Dog]>([])
 
   const handleGetdog = async () => {
     const response = await fetch(
       "https://dog.ceo/api/breeds/image/random"
     );
     const jsonBody: Dog = await response.json();
-    setDog(jsonBody);
+    setDog([...dog, jsonBody])
     console.log(jsonBody.message, jsonBody.status)
   };
 
@@ -23,14 +24,21 @@ function App() {
   //     .then((jsonBody: Dog) => setDog(jsonBody));
   // };
 
-  if (dog) {
+
+
+  if (dog.length > 0) {
     return (
       <div>
         <h1>dog app</h1>
-        <img src={dog.message} alt="random Dog " />s
+        <div>
+          {dog.map((dogElement) =>
+          <>
+          <li><img src={dogElement.message} alt="random Dog " /></li>
+          <summary>{dogElement.message}</summary>
+          <p>{dogElement.status}</p>
+          </>)}
+        </div>
         <details>
-          <summary>{dog.message}</summary>
-          <p>{dog.status}</p>
         </details>
         <hr />
         <button onClick={handleGetdog}>Get another dog</button>
